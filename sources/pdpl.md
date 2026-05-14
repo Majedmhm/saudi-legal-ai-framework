@@ -147,4 +147,5 @@
 
 - **هيئة سدايا:** [sdaia.gov.sa](https://sdaia.gov.sa)
 - **منصة حماية البيانات الشخصية:** [pdp.sdaia.gov.sa](https://pdp.sdaia.gov.sa)
-- **نص النظام على منصة نور:** [noor.moj.gov.sa](https://noor.moj.gov.sa)
+- **هيئة الخبراء بمجلس الوزراء:** [boe.gov.sa](https://boe.gov.sa)
+- **الجريدة الرسمية (أم القرى):** [uqn.gov.sa](https://uqn.gov.sa)

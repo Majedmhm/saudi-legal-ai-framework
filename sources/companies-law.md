@@ -116,7 +116,8 @@
 
 ## المصادر الرسمية / Official Sources
 
-- **منصة نور:** [noor.moj.gov.sa](https://noor.moj.gov.sa)
+- **هيئة الخبراء بمجلس الوزراء:** [boe.gov.sa](https://boe.gov.sa)
+- **الجريدة الرسمية (أم القرى):** [uqn.gov.sa](https://uqn.gov.sa)
 - **وزارة التجارة:** [mc.gov.sa](https://www.mc.gov.sa)
 - **منصة المساهم (تسجيل الشركات):** [mc.gov.sa](https://www.mc.gov.sa)
 - **هيئة السوق المالية:** [cma.org.sa](https://www.cma.org.sa)

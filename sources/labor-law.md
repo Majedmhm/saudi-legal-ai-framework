@@ -149,6 +149,7 @@
 
 ## المصدر الرسمي / Official Source
 
-- **منصة نور:** [noor.moj.gov.sa](https://noor.moj.gov.sa)
+- **هيئة الخبراء بمجلس الوزراء:** [boe.gov.sa](https://boe.gov.sa)
+- **الجريدة الرسمية (أم القرى):** [uqn.gov.sa](https://uqn.gov.sa)
 - **منصة قوى:** [qiwa.com.sa](https://www.qiwa.com.sa)
 - **وزارة الموارد البشرية:** [hrsd.gov.sa](https://www.hrsd.gov.sa)

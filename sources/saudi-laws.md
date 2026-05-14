@@ -105,7 +105,7 @@
 
 | المصدر | الرابط | المحتوى |
 |--------|--------|---------|
-| **منصة نور** | noor.moj.gov.sa | الأنظمة واللوائح الرسمية |
+| **هيئة الخبراء بمجلس الوزراء** | boe.gov.sa | الأنظمة واللوائح الرسمية |
 | **الجريدة الرسمية (أم القرى)** | uqn.gov.sa | النصوص الرسمية المنشورة |
 | **منصة ناجز** | najiz.sa | الخدمات القضائية الإلكترونية |
 | **هيئة المحامين السعوديين** | sba.org.sa | قوائم المحامين المرخّصين |
@@ -115,6 +115,6 @@
 
 ## ملاحظة مهمة للذكاء الاصطناعي / Important Note for AI
 
-الأنظمة السعودية تتطور بسرعة ملحوظة. التاريخ المذكور هو تاريخ الإصدار الأصلي، لكن **كثيرًا من الأنظمة تعرّضت لتعديلات لاحقة**. تحقق دائمًا من منصة نور للنسخة السارية قبل الاستشهاد بأي مادة نظامية.
+الأنظمة السعودية تتطور بسرعة ملحوظة. التاريخ المذكور هو تاريخ الإصدار الأصلي، لكن **كثيرًا من الأنظمة تعرّضت لتعديلات لاحقة**. تحقق دائمًا من موقع هيئة الخبراء بمجلس الوزراء (boe.gov.sa) أو الجريدة الرسمية (أم القرى) للنسخة السارية قبل الاستشهاد بأي مادة نظامية.
 
-Saudi regulations evolve rapidly. Dates listed are original issuance dates; many regulations have since been amended. Always verify the current version on the Noor platform before citing any regulatory article.
+Saudi regulations evolve rapidly. Dates listed are original issuance dates; many regulations have since been amended. Always verify the current version via the Bureau of Experts at the Council of Ministers (boe.gov.sa) or the Official Gazette (Umm Al-Qura) before citing any regulatory article.

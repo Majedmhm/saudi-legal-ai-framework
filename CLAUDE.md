@@ -33,7 +33,7 @@ examples/    → Worked analysis examples demonstrating the framework in practic
 ## Key Saudi Legal Context
 
 - The primary legislative instrument is the **Royal Decree (مرسوم ملكي)**
-- Regulations are published officially via **منصة نور** (noor.moj.gov.sa) and the **Official Gazette (أم القرى)**
+- Regulations are published officially via **هيئة الخبراء بمجلس الوزراء** (boe.gov.sa) and the **Official Gazette / الجريدة الرسمية (أم القرى)** (uqn.gov.sa)
 - Saudi labor law has specific mandatory provisions: Saudization (نطاقات/Nitaqat), end-of-service benefits (مكافأة نهاية الخدمة), and mandatory written contracts
 - The **PDPL (نظام حماية البيانات الشخصية)** became effective September 2023
 - Commercial disputes are handled by **Commercial Courts (المحاكم التجارية)** established under Royal Decree M/93 (2020)

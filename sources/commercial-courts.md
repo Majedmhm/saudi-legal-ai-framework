@@ -133,4 +133,5 @@
 - **منصة ناجز (القضاء الإلكتروني):** [najiz.sa](https://www.najiz.sa)
 - **وزارة العدل:** [moj.gov.sa](https://www.moj.gov.sa)
 - **الهيئة السعودية للتحكيم التجاري:** [scca.org.sa](https://www.scca.org.sa)
-- **منصة نور (النصوص النظامية):** [noor.moj.gov.sa](https://noor.moj.gov.sa)
+- **هيئة الخبراء بمجلس الوزراء:** [boe.gov.sa](https://boe.gov.sa)
+- **الجريدة الرسمية (أم القرى):** [uqn.gov.sa](https://uqn.gov.sa)
