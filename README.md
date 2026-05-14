@@ -7,6 +7,9 @@
 ║   تكييف مساعدات الذكاء الاصطناعي مع البيئة القانونية السعودية ║
 ╚═══════════════════════════════════════════════════════════════╝
 ```
+<p align="center">
+  <img src="assets/cover.png" alt="Saudi Legal AI Framework" width="100%">
+</p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Status: Active](https://img.shields.io/badge/Status-Active-green.svg)](ROADMAP.md)
