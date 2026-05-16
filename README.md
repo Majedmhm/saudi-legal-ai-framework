@@ -11,6 +11,7 @@
   <img src="assets/cover.png" alt="Saudi Legal AI Framework" width="100%">
 </p>
 
+[![Validate Datasets](https://github.com/Samix2026/saudi-legal-ai-framework/actions/workflows/validate-datasets.yml/badge.svg)](https://github.com/Samix2026/saudi-legal-ai-framework/actions/workflows/validate-datasets.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Status: Active](https://img.shields.io/badge/Status-Active-green.svg)](ROADMAP.md)
 [![Language: AR | EN](https://img.shields.io/badge/Language-Arabic%20%7C%20English-orange.svg)]()
