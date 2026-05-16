@@ -24,9 +24,11 @@
 ---
 
 ### 2. `contract_type`
-**النوع:** نص (String)
+**النوع:** نص محدود القيم (Enum)
 **الوصف:** نوع العقد الذي يحتوي هذا البند.
 **Type of contract containing this clause.**
+
+**القيم المقبولة والمرجع الرسمي / Accepted values & authoritative reference:** [`datasets/enums/contract-types.md`](enums/contract-types.md)
 
 | صحيح ✅ | خطأ ❌ |
 |--------|-------|
@@ -35,14 +37,16 @@
 | `Cloud Storage Agreement` | `` (فارغ) |
 
 **قيم شائعة / Common values:**
-`Employment Contract` | `SaaS Agreement` | `Professional Services Agreement` | `Construction Contract` | `Supply Agreement` | `NDA` | `Shareholder Agreement` | `Franchise Agreement` | `Commercial Agency Agreement` | `Lease Agreement`
+`Employment Contract` | `SaaS Agreement` | `Professional Services Agreement` | `Construction Contract` | `Supply Agreement` | `NDA` | `Shareholder Agreement` | `Franchise Agreement` | `Commercial Agency Agreement` | `Lease Agreement` | `Cloud Storage Agreement`
 
 ---
 
 ### 3. `clause_category`
-**النوع:** نص (String)
+**النوع:** نص محدود القيم (Enum)
 **الوصف:** تصنيف موضوع البند القانوني.
 **Legal topic category of the clause.**
+
+**القيم المقبولة والمرجع الرسمي / Accepted values & authoritative reference:** [`datasets/enums/clause-categories.md`](enums/clause-categories.md)
 
 | صحيح ✅ | خطأ ❌ |
 |--------|-------|
@@ -72,8 +76,11 @@
 
 ### 5. `risk_level`
 **النوع:** نص محدود القيم (Enum)
-**الوصف:** مستوى خطورة البند. راجع `risk-taxonomy.md` للتعريفات الكاملة.
-**Risk level of the clause. See `risk-taxonomy.md` for full definitions.**
+**الوصف:** مستوى خطورة البند.
+**Risk level of the clause.**
+
+**القيم المقبولة والمرجع الرسمي / Accepted values & authoritative reference:** [`datasets/enums/risk-levels.md`](enums/risk-levels.md)
+**التعريفات التفصيلية / Full definitions:** [`datasets/risk-taxonomy.md`](risk-taxonomy.md)
 
 | القيمة | المعنى |
 |--------|-------|
@@ -177,9 +184,11 @@
 ---
 
 ### 12. `industry`
-**النوع:** نص (String)
+**النوع:** نص محدود القيم (Enum)
 **الوصف:** القطاع الاقتصادي الذي ينتمي إليه العقد.
 **Economic sector the contract belongs to.**
+
+**القيم المقبولة والمرجع الرسمي / Accepted values & authoritative reference:** [`datasets/enums/industries.md`](enums/industries.md)
 
 **قيم موحَّدة / Standardized values:**
 `Technology` | `Professional Services` | `Construction` | `Healthcare` | `Real Estate` | `Finance` | `Retail` | `Logistics` | `Energy` | `Education` | `Government` | `General`

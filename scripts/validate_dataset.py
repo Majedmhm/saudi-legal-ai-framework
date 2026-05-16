@@ -8,6 +8,12 @@ Validates saudi-contract-risk-dataset.csv before contribution.
 الاستخدام / Usage:
     python scripts/validate_dataset.py
     python scripts/validate_dataset.py --file datasets/your-file.csv
+
+مصادر الـ enums / Enum sources:
+    datasets/enums/risk-levels.md
+    datasets/enums/industries.md
+    datasets/enums/clause-categories.md
+    datasets/enums/contract-types.md
 """
 
 import csv
@@ -35,7 +41,55 @@ REQUIRED_COLUMNS = [
     "notes",
 ]
 
+# Canonical enums — keep in sync with datasets/enums/*.md
 VALID_RISK_LEVELS = {"critical", "high", "medium", "low"}
+
+VALID_CONTRACT_TYPES = {
+    "Employment Contract",
+    "SaaS Agreement",
+    "Professional Services Agreement",
+    "Construction Contract",
+    "Supply Agreement",
+    "NDA",
+    "Shareholder Agreement",
+    "Franchise Agreement",
+    "Commercial Agency Agreement",
+    "Lease Agreement",
+    "Cloud Storage Agreement",
+}
+
+VALID_CLAUSE_CATEGORIES = {
+    "Jurisdiction & Dispute Resolution",
+    "Liability",
+    "Data Protection & Privacy",
+    "Intellectual Property",
+    "Termination",
+    "Confidentiality",
+    "Payment Terms",
+    "Governing Law",
+    "Force Majeure",
+    "Warranties",
+    "Indemnification",
+    "Employment & Labor",
+    "Saudization",
+    "Corporate Governance",
+}
+
+VALID_INDUSTRIES = {
+    "Technology",
+    "Professional Services",
+    "Construction",
+    "Healthcare",
+    "Real Estate",
+    "Finance",
+    "Retail",
+    "Logistics",
+    "Energy",
+    "Education",
+    "Government",
+    "General",
+}
+
 VALID_BOOLEAN = {"yes", "no"}
 VALID_LANGUAGES = {"en", "ar", "bilingual"}
 VALID_SOURCE_TYPES = {"hypothetical", "abstracted", "published_case", "standard_form"}
@@ -63,6 +117,15 @@ def print_section(title):
     print(f"\n{'─' * 60}")
     print(f"  {title}")
     print(f"{'─' * 60}")
+
+
+def _enum_hint(value: str, valid_set: set) -> str:
+    """Return a hint if the value looks like a case mismatch."""
+    lower_map = {v.lower(): v for v in valid_set}
+    canonical = lower_map.get(value.lower())
+    if canonical and canonical != value:
+        return f" Did you mean '{canonical}'?"
+    return ""
 
 
 # ── Checks ─────────────────────────────────────────────────────────────────────
@@ -106,8 +169,6 @@ def check_header(header: list):
 def check_row(row: dict, row_num: int):
     errors = []
 
-    # Column count already enforced by DictReader if fieldnames match
-
     # id — must be non-empty and numeric
     id_val = row.get("id", "").strip()
     if not id_val:
@@ -116,12 +177,37 @@ def check_row(row: dict, row_num: int):
         errors.append(ValidationError(row_num, "id", id_val,
             "id must be a positive integer."))
 
-    # risk_level — controlled vocabulary
+    # risk_level — controlled vocabulary (datasets/enums/risk-levels.md)
     rl = row.get("risk_level", "").strip()
     if rl not in VALID_RISK_LEVELS:
+        hint = _enum_hint(rl, VALID_RISK_LEVELS)
         errors.append(ValidationError(row_num, "risk_level", rl,
-            f"Must be one of: {sorted(VALID_RISK_LEVELS)}. "
-            f"Check for uppercase or typos."))
+            f"Must be one of: {sorted(VALID_RISK_LEVELS)}.{hint} "
+            f"See datasets/enums/risk-levels.md"))
+
+    # contract_type — controlled vocabulary (datasets/enums/contract-types.md)
+    ct = row.get("contract_type", "").strip()
+    if ct and ct not in VALID_CONTRACT_TYPES:
+        hint = _enum_hint(ct, VALID_CONTRACT_TYPES)
+        errors.append(ValidationError(row_num, "contract_type", ct,
+            f"Not a recognised contract type.{hint} "
+            f"See datasets/enums/contract-types.md for valid values."))
+
+    # clause_category — controlled vocabulary (datasets/enums/clause-categories.md)
+    cc = row.get("clause_category", "").strip()
+    if cc and cc not in VALID_CLAUSE_CATEGORIES:
+        hint = _enum_hint(cc, VALID_CLAUSE_CATEGORIES)
+        errors.append(ValidationError(row_num, "clause_category", cc,
+            f"Not a recognised clause category.{hint} "
+            f"See datasets/enums/clause-categories.md for valid values."))
+
+    # industry — controlled vocabulary (datasets/enums/industries.md)
+    ind = row.get("industry", "").strip()
+    if ind and ind not in VALID_INDUSTRIES:
+        hint = _enum_hint(ind, VALID_INDUSTRIES)
+        errors.append(ValidationError(row_num, "industry", ind,
+            f"Not a recognised industry.{hint} "
+            f"See datasets/enums/industries.md for valid values."))
 
     # requires_escalation — yes / no only
     re_val = row.get("requires_escalation", "").strip()
@@ -244,7 +330,7 @@ def validate(path: Path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Validate saudi-contract-risk-dataset.csv"
+        description="Validate a Saudi Legal AI Framework dataset CSV file."
     )
     parser.add_argument(
         "--file",
