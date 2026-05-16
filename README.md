@@ -92,35 +92,87 @@ See [ROADMAP.md](ROADMAP.md) for the full plan and task breakdown.
 ```
 saudi-legal-ai-framework/
 │
-├── README.md                         # Project overview (this file)
-├── CLAUDE.md                         # Guidance for Claude Code users
-├── ROADMAP.md                        # Project phases and task tracking
+├── README.md                              # Project overview (this file)
+├── CLAUDE.md                              # Guidance for Claude Code users
+├── ROADMAP.md                             # Project phases and task tracking
 │
-├── skills/                           # How AI should reason in each legal domain
-│   ├── contract-review.md            # Contract analysis under Saudi law
-│   ├── labor-law-analysis.md         # Saudi Labor Law (Royal Decree M/51)
-│   ├── commercial-dispute.md         # Commercial court procedures and strategy
-│   ├── compliance-check.md           # Regulatory compliance assessment
-│   └── legal-drafting.md             # Saudi legal drafting standards
+├── skills/                                # How AI should reason in each legal domain
+│   ├── contract-review.md
+│   ├── labor-law-analysis.md
+│   ├── commercial-dispute.md
+│   ├── compliance-check.md
+│   └── legal-drafting.md
 │
-├── sources/                          # Reference summaries of key Saudi regulations
-│   ├── saudi-laws.md                 # Legislative system overview
-│   ├── labor-law.md                  # Labor Law provisions
-│   ├── companies-law.md              # Companies Law (Royal Decree M/132, 1443H)
-│   ├── commercial-courts.md          # Commercial Courts Law (Royal Decree M/93)
-│   └── pdpl.md                       # Personal Data Protection Law
+├── sources/                               # Reference summaries of key Saudi regulations
+│   ├── saudi-laws.md
+│   ├── labor-law.md
+│   ├── companies-law.md
+│   ├── commercial-courts.md
+│   ├── pdpl.md
+│   ├── regulation-index.md                # Authoritative citation registry for all regulations
+│   ├── open-data-judicial-sources.md      # Saudi open data — supplementary statistics only
+│   └── judicial-decisions/                # Scanned PDF volumes of Saudi court decisions
+│       └── 1435/                          # Hijri year — 14 PDF volumes
 │
-├── prompts/                          # Ready-to-use prompt templates
-│   ├── review-contract.md            # Contract review prompts
-│   ├── draft-notice.md               # Legal notice drafting prompts
-│   └── risk-analysis.md              # Legal risk analysis prompts
+├── datasets/                              # Structured legal datasets
+│   ├── saudi-contract-risk-dataset.csv    # Master dataset
+│   ├── schema.md                          # 16-column schema definition
+│   ├── enums/                             # Controlled vocabularies (risk, contract, clause, industry)
+│   ├── examples/                          # Sector-specific example CSVs
+│   ├── contributions/                     # One-file-per-contributor staging area
+│   ├── build/                             # Generated merged output (CI-produced)
+│   ├── judicial-reasoning/                # Structured extraction from court decisions
+│   │   ├── schema.md                      # 19-field extraction schema
+│   │   ├── example-extraction.md          # Teaching example with walkthrough
+│   │   └── extraction-guidelines.md       # Redaction, anonymization, extraction rules
+│   └── judicial-index/                    # PDF section index — before extraction
+│       ├── schema.md                      # 13-field indexing schema
+│       ├── judicial-corpus-index.csv      # Section-level map of PDF volumes
+│       └── README.md
 │
-└── examples/                         # Annotated worked examples
-    ├── employment-contract-review.md  # Employment contract analysis walkthrough
-    └── nda-review.md                  # NDA review walkthrough
+├── prompts/                               # Ready-to-use prompt templates
+│   ├── review-contract.md
+│   ├── draft-notice.md
+│   └── risk-analysis.md
+│
+├── examples/                              # Annotated worked examples
+│   ├── employment-contract-review.md
+│   └── nda-review.md
+│
+├── docs/                                  # Architecture, governance, and planning documents
+│   ├── system-architecture.md             # Full system layer map and data lifecycle
+│   ├── cross-reference-map.md             # File dependency map — what to update when
+│   ├── legal-verification-lifecycle.md    # Verification states and transition rules
+│   └── official-api-sources.md            # Saudi government Real-Time APIs — future integration
+│
+└── scripts/                               # Validation and build automation
+    ├── validate_dataset.py
+    └── build_dataset.py
 ```
 
 **Design principle:** Each layer is independent. Use a single prompt template without reading the skills files, or combine all layers for a richer context.
+
+For a complete description of each layer, the data lifecycle, and the planned future architecture, see [docs/system-architecture.md](docs/system-architecture.md).
+
+---
+
+## Current Architecture Layers / طبقات المعمارية الحالية
+
+| Layer | Directory | Status | Description |
+|-------|-----------|--------|-------------|
+| **Legislative Sources** | `sources/` | Active | Reference summaries of Saudi regulations with official citations |
+| **Judicial Corpus** | `sources/judicial-decisions/` | Active — Indexing | Scanned PDF volumes of Saudi court decisions (14 files, 1435H) |
+| **Corpus Index** | `datasets/judicial-index/` | Active — In Progress | Section-level map of PDF volumes before extraction |
+| **Judicial Extraction** | `datasets/judicial-reasoning/` | Framework Ready | Structured 19-field extraction schema — awaiting indexed sections |
+| **Contract Datasets** | `datasets/` | Active | 16-column CSV schema with verification lifecycle |
+| **AI Skills** | `skills/` | Active | Domain-specific reasoning guides for AI assistants |
+| **Prompt Templates** | `prompts/` | Active | Self-contained, model-neutral prompt templates |
+| **Worked Examples** | `examples/` | Active | Annotated walkthroughs for reference |
+| **Future: OCR Layer** | — | Planned | Text extraction from scanned judicial PDFs |
+| **Future: RAG Layer** | — | Planned | Retrieval-augmented generation over verified content |
+| **Future: Agent Layer** | — | Planned | Orchestrated multi-step legal analysis workflows |
+
+See [docs/system-architecture.md](docs/system-architecture.md) for the full layer map, [datasets/judicial-index/](datasets/judicial-index/) for corpus indexing progress, and [datasets/judicial-reasoning/](datasets/judicial-reasoning/) for the extraction framework.
 
 ---
 

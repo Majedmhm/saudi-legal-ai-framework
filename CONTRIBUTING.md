@@ -17,6 +17,7 @@
 - [هدف المشروع](#هدف-المشروع--project-goal)
 - [أنواع المساهمات المقبولة](#أنواع-المساهمات-المقبولة--accepted-contribution-types)
 - [Good First Contributions](#good-first-contributions)
+- [الفرق بين Source و Extraction](#الفرق-بين-source-و-extraction--source-vs-extraction)
 - [Contribution Workflow](#contribution-workflow)
 - [كيفية فتح Issue](#كيفية-فتح-issue--how-to-open-an-issue)
 - [كيفية فتح Pull Request](#كيفية-فتح-pull-request--how-to-open-a-pull-request)
@@ -87,6 +88,40 @@ Review [`datasets/examples/`](datasets/examples/) and add examples for missing s
 تحقق من أن المواد النظامية المذكورة في `related_regulation` بالـ dataset تُشير إلى المواد الصحيحة. إذا وجدت خطأ، افتح Issue.
 
 Verify that the regulatory articles cited in the dataset's `related_regulation` column point to the correct articles. If you find an error, open an Issue.
+
+---
+
+## الفرق بين Source و Extraction / Source vs Extraction
+
+هذا التمييز ضروري لأن المساهمين يخلطون أحيانًا بين الطبقتين.
+
+This distinction is critical because contributors sometimes confuse the two layers.
+
+| الطبقة | المجلد | المحتوى | من يُضيف |
+|--------|--------|---------|---------|
+| **Source** | `sources/` | ملخصات مرجعية للأنظمة — ما يقوله النظام | أي مساهم مع مصدر رسمي |
+| **Judicial Corpus** | `sources/judicial-decisions/` | ملفات PDF مسحوبة ضوئيًا — النص الخام | ملفات إضافية بإذن المشروع |
+| **Corpus Index** | `datasets/judicial-index/` | فهرس أقسام الـ PDF — ما الذي يوجد أين | أي مساهم يستطيع قراءة فهرس PDF |
+| **Extraction** | `datasets/judicial-reasoning/` | ما قالته المحاكم — استخلاص منظَّم من الأحكام | مساهمون مؤهلون قانونيًا فقط |
+
+### القاعدة الأساسية / The Core Rule
+
+```
+sources/        ←  ما يقوله النظام (تشريع)
+judicial-index/ ←  ما يوجد في الـ PDF (فهرسة)
+judicial-reasoning/ ←  ما قالته المحكمة (استخراج)
+```
+
+**المصادر التشريعية لا تحلّ محل الأحكام القضائية، والعكس صحيح.**
+
+Legislative sources do not replace judicial decisions, and vice versa.
+
+### قبل المساهمة في Extraction / Before Contributing an Extraction
+
+1. تأكد أن القسم المعني مُسجَّل في [`datasets/judicial-index/judicial-corpus-index.csv`](datasets/judicial-index/judicial-corpus-index.csv) أولًا
+2. اقرأ [`datasets/judicial-reasoning/extraction-guidelines.md`](datasets/judicial-reasoning/extraction-guidelines.md) كاملًا
+3. أخفِ جميع البيانات الشخصية قبل الإرسال
+4. أضف `verification_status = draft` على كل صف
 
 ---
 
@@ -200,6 +235,8 @@ Verify the following before submitting:
 - [ ] Ran `python3 scripts/validate_dataset.py --file <your-file.csv>` and it passed
 - [ ] القيم في `contract_type`، `clause_category`، `industry` من الـ enums المعتمدة
 - [ ] Values in `contract_type`, `clause_category`, `industry` are from the approved enums
+- [ ] كل صف يحتوي على `verification_status` — القيمة الافتراضية `draft`
+- [ ] Every row has a `verification_status` value — default is `draft`
 - [ ] لا توجد بيانات حقيقية (أسماء شركات، أفراد، أرقام عقود)
 - [ ] No real data (company names, individuals, contract numbers)
 - [ ] كل صف `clause_text` افتراضي أو مُجرَّد تمامًا
@@ -481,6 +518,26 @@ Prohibited: copying regulatory text from Wikipedia, blogs, law firm websites, or
 يُحظر إضافة محتوى مُولَّد بالكامل بالذكاء الاصطناعي دون مراجعة بشرية واعية. المساهم مسؤول شخصيًا عن دقة ما يُرسله.
 
 Prohibited: adding content generated entirely by AI without conscious human review. The contributor is personally responsible for the accuracy of what they submit.
+
+### ❌ رفع Extracted Reasoning بدون Anonymization / Uploading Extracted Reasoning Without Anonymization
+
+يُحظر رفع أي استخراج من حكم قضائي يحتوي على اسم طرف حقيقي، رقم ملف رسمي، أو بيانات تعريفية يمكن من خلالها تحديد هوية الأطراف. كل استخراج يجب أن يستبدل الأسماء بعلامات مُجرَّدة مثل `[صاحب العمل]` و`[العامل]`.
+
+اقرأ [`datasets/judicial-reasoning/extraction-guidelines.md`](datasets/judicial-reasoning/extraction-guidelines.md) قبل أي استخراج.
+
+Prohibited: uploading any extraction from a judicial decision that contains real party names, official case numbers, or identifying data. Every extraction must replace names with abstract markers such as `[صاحب العمل]` and `[العامل]`. Read the extraction guidelines before submitting.
+
+### ❌ استخراج حكم غير قابل للقراءة / Extracting from an Unreadable Decision
+
+يُحظر محاولة استخراج reasoning من صفحة PDF غير واضحة القراءة، أو من نص مُشوَّه، أو من حكم لا يمكن التحقق من سياقه. في هذه الحالة: أضف ملاحظة في سجل الفهرس وتوقف.
+
+Prohibited: attempting to extract reasoning from a PDF page that is unclear, corrupted, or whose context cannot be verified. In that case: add a note in the index record and stop.
+
+### ❌ إضافة صف Extraction بدون verification_status / Adding an Extraction Row Without verification_status
+
+كل صف في `datasets/judicial-reasoning/` يجب أن يحتوي على `verification_status = draft` كحد أدنى. لا تُرسل صفًا فارغ الحقل.
+
+Every row in `datasets/judicial-reasoning/` must include `verification_status = draft` at minimum. Do not submit a row with an empty status field.
 
 ---
 
