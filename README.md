@@ -288,6 +288,7 @@ Please read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before contributing. To rep
 | [SECURITY.md](SECURITY.md) | How to report security issues and data incidents |
 | [docs/cross-reference-map.md](docs/cross-reference-map.md) | File dependency map — what to update when you change something |
 | [sources/open-data-judicial-sources.md](sources/open-data-judicial-sources.md) | Saudi open data sources — judicial statistics and practice signals |
+| [docs/official-api-sources.md](docs/official-api-sources.md) | Saudi government Real-Time APIs — future architecture and governance |
 
 ---
 
