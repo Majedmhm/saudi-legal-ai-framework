@@ -33,6 +33,7 @@ def _make_valid_row(id: str = "1", clause_text: str = None, **overrides) -> dict
         "source_type": "hypothetical",
         "reviewed_by_lawyer": "no",
         "notes": "",
+        "verification_status": "draft",
     }
     row.update(overrides)
     return row

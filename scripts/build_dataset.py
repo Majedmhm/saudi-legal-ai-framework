@@ -39,6 +39,7 @@ REQUIRED_COLUMNS = [
     "source_type",
     "reviewed_by_lawyer",
     "notes",
+    "verification_status",
 ]
 
 DEFAULT_CONTRIBUTIONS_DIR = Path("datasets/contributions")

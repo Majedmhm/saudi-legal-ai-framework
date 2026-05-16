@@ -33,6 +33,7 @@ def _make_valid_row(**overrides) -> dict:
         "source_type": "hypothetical",
         "reviewed_by_lawyer": "no",
         "notes": "",
+        "verification_status": "draft",
     }
     row.update(overrides)
     return row
@@ -117,6 +118,29 @@ class TestCheckRow:
     def test_invalid_source_type_fails(self):
         errors = vd.check_row(_make_valid_row(source_type="real"), row_num=2)
         assert any("source_type" in str(e) for e in errors)
+
+    def test_invalid_verification_status_fails(self):
+        errors = vd.check_row(_make_valid_row(verification_status="unknown"), row_num=2)
+        assert any("verification_status" in str(e) for e in errors)
+
+    def test_empty_verification_status_fails(self):
+        errors = vd.check_row(_make_valid_row(verification_status=""), row_num=2)
+        assert any("verification_status" in str(e) for e in errors)
+
+    def test_all_valid_verification_statuses_pass(self):
+        valid_statuses = ["draft", "pending-review", "verified", "reviewed", "deprecated", "superseded"]
+        for status in valid_statuses:
+            errors = vd.check_row(_make_valid_row(verification_status=status), row_num=2)
+            assert not any("verification_status" in str(e) for e in errors), \
+                f"Status '{status}' should be valid but got errors: {errors}"
+
+    def test_uppercase_verification_status_fails(self):
+        errors = vd.check_row(_make_valid_row(verification_status="Draft"), row_num=2)
+        assert any("verification_status" in str(e) for e in errors)
+
+    def test_underscore_variant_verification_status_fails(self):
+        errors = vd.check_row(_make_valid_row(verification_status="pending_review"), row_num=2)
+        assert any("verification_status" in str(e) for e in errors)
 
 
 # ── validate (integration) ────────────────────────────────────────────────────

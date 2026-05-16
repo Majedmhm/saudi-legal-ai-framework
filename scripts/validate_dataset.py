@@ -39,10 +39,20 @@ REQUIRED_COLUMNS = [
     "source_type",
     "reviewed_by_lawyer",
     "notes",
+    "verification_status",
 ]
 
 # Canonical enums — keep in sync with datasets/enums/*.md
 VALID_RISK_LEVELS = {"critical", "high", "medium", "low"}
+
+VALID_VERIFICATION_STATUSES = {
+    "draft",
+    "pending-review",
+    "verified",
+    "reviewed",
+    "deprecated",
+    "superseded",
+}
 
 VALID_CONTRACT_TYPES = {
     "Employment Contract",
@@ -232,6 +242,14 @@ def check_row(row: dict, row_num: int):
     if st not in VALID_SOURCE_TYPES:
         errors.append(ValidationError(row_num, "source_type", st,
             f"Must be one of: {sorted(VALID_SOURCE_TYPES)}."))
+
+    # verification_status — controlled vocabulary (datasets/enums/verification-status.md)
+    vs = row.get("verification_status", "").strip()
+    if vs not in VALID_VERIFICATION_STATUSES:
+        hint = _enum_hint(vs, VALID_VERIFICATION_STATUSES)
+        errors.append(ValidationError(row_num, "verification_status", vs,
+            f"Must be one of: {sorted(VALID_VERIFICATION_STATUSES)}.{hint} "
+            f"See datasets/enums/verification-status.md"))
 
     # Required non-empty text fields
     required_non_empty = [

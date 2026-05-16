@@ -1,7 +1,7 @@
 # Dataset Schema / مخطط البيانات
 
 **الملف:** `saudi-contract-risk-dataset.csv`
-**عدد الأعمدة:** 15
+**عدد الأعمدة:** 16
 **الترميز:** UTF-8
 **الفاصل:** فاصلة `,`
 
@@ -228,7 +228,35 @@
 
 - سياق إضافي غير ملائم لبقية الأعمدة
 - ملاحظة عن شيوع هذا النمط في قطاع معين
-- إشارة لحاجة مراجعة هذا الصف
+- عند الحالة `superseded` يجب ذكر ID البديل: `superseded by row <ID>`
+
+---
+
+### 16. `verification_status`
+**النوع:** نص محدود القيم (Enum)
+**الوصف:** مرحلة دورة حياة التحقق القانوني لهذا الصف.
+**Legal verification lifecycle stage of this row.**
+
+**القيم المقبولة والمرجع الرسمي / Accepted values & authoritative reference:** [`datasets/enums/verification-status.md`](enums/verification-status.md)
+
+**التوثيق الكامل / Full documentation:** [`docs/legal-verification-lifecycle.md`](../docs/legal-verification-lifecycle.md)
+
+| القيمة | المعنى | يُسمح في production |
+|--------|-------|---------------------|
+| `draft` | مسودة أولية — لم تُراجَع | ❌ |
+| `pending-review` | قيد المراجعة القانونية | ❌ |
+| `reviewed` | مراجَع من مختص (غير محامٍ) | ⚠️ بتحفظ |
+| `verified` | مُتحقَّق من محامٍ مرخَّص | ✅ |
+| `deprecated` | متقادم — تغير التشريع | ❌ |
+| `superseded` | مستبدَل بصف أحدث | ❌ |
+
+**الحالة الافتراضية / Default:** `draft` — استخدم هذه القيمة دائمًا عند إضافة صفوف جديدة.
+
+**Default:** `draft` — always use this value when adding new rows.
+
+**قاعدة الاتساق / Consistency rule:**
+إذا كانت `verification_status = verified` فيجب أن تكون `reviewed_by_lawyer = yes`.
+If `verification_status = verified`, then `reviewed_by_lawyer` must be `yes`.
 
 ---
 
