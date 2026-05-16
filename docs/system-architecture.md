@@ -523,6 +523,7 @@ saudi-legal-ai-framework/
 | [`docs/legal-verification-lifecycle.md`](legal-verification-lifecycle.md) | تفصيل تدفق التحقق |
 | [`docs/cross-reference-map.md`](cross-reference-map.md) | خريطة التبعيات بين الملفات |
 | [`docs/official-api-sources.md`](official-api-sources.md) | تصور طبقة API المستقبلية |
+| [`docs/ocr-strategy.md`](ocr-strategy.md) | استراتيجية OCR — مقارنة الأدوات، المخاطر، خطة الاختبار |
 | [`sources/regulation-index.md`](../sources/regulation-index.md) | سجل الاستشهادات الرسمي |
 | [`datasets/judicial-index/README.md`](../datasets/judicial-index/README.md) | دليل طبقة الفهرسة |
 | [`datasets/judicial-reasoning/extraction-guidelines.md`](../datasets/judicial-reasoning/extraction-guidelines.md) | دليل طبقة الاستخراج |

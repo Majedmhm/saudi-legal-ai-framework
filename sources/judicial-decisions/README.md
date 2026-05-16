@@ -157,6 +157,7 @@ Remove all identifying data, add a file header with: court name, Hijri year, cas
 | [`sources/regulation-index.md`](../regulation-index.md) | الأنظمة المُطبَّقة في الأحكام — المرجع الأول |
 | [`sources/open-data-judicial-sources.md`](../open-data-judicial-sources.md) | مصدر البيانات المفتوحة التكميلي |
 | [`docs/legal-verification-lifecycle.md`](../../docs/legal-verification-lifecycle.md) | معيار `verification_status` |
+| [`docs/ocr-strategy.md`](../../docs/ocr-strategy.md) | استراتيجية OCR للـ PDFs المُمسوحة — قراءة قبل أي محاولة استخراج آلي |
 | [`docs/official-api-sources.md`](../../docs/official-api-sources.md) | التصور المعماري لاستيعاب البيانات مستقبلًا |
 | [`datasets/judicial-reasoning/schema.md`](../../datasets/judicial-reasoning/schema.md) | مخطط الاستخراج المنظَّم (19 حقلاً) |
 | [`datasets/judicial-reasoning/extraction-guidelines.md`](../../datasets/judicial-reasoning/extraction-guidelines.md) | دليل الاستخراج والإخفاء |
