@@ -291,6 +291,7 @@ Please read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before contributing. To rep
 | [docs/official-api-sources.md](docs/official-api-sources.md) | Saudi government Real-Time APIs — future architecture and governance |
 | [datasets/judicial-reasoning/schema.md](datasets/judicial-reasoning/schema.md) | Judicial reasoning extraction schema — 19-field structured format |
 | [datasets/judicial-reasoning/extraction-guidelines.md](datasets/judicial-reasoning/extraction-guidelines.md) | Extraction and redaction guidelines for judicial decisions |
+| [datasets/judicial-index/judicial-corpus-index.csv](datasets/judicial-index/judicial-corpus-index.csv) | Judicial corpus index — section-level map of PDF volumes before extraction |
 
 ---
 

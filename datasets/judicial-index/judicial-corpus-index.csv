@@ -1,0 +1,6 @@
+index_id,source_pdf,volume_year,volume_number,main_domain,subcategory,start_page,end_page,estimated_case_count,court_type,extraction_priority,verification_status,notes
+IDX-1435-01-001,sources/judicial-decisions/1435/1.pdf,1435,1,civil,هبة وعطية,0,0,0,civil,medium,draft,TO VERIFY — أرقام الصفحات تحتاج قراءة يدوية من فهرس PDF
+IDX-1435-01-002,sources/judicial-decisions/1435/1.pdf,1435,1,civil,إعسار,0,0,0,civil,high,draft,TO VERIFY — أرقام الصفحات تحتاج قراءة يدوية من فهرس PDF. ذو صلة بعقود التوريد والمقاولة
+IDX-1435-01-003,sources/judicial-decisions/1435/1.pdf,1435,1,civil,عقار,0,0,0,civil,medium,draft,TO VERIFY — أرقام الصفحات تحتاج قراءة يدوية من فهرس PDF
+IDX-1435-01-004,sources/judicial-decisions/1435/1.pdf,1435,1,civil,إخلاء عقار,0,0,0,civil,medium,draft,TO VERIFY — أرقام الصفحات تحتاج قراءة يدوية من فهرس PDF. ذو صلة بعقود الإيجار
+IDX-1435-01-005,sources/judicial-decisions/1435/1.pdf,1435,1,civil,استرداد حيازة,0,0,0,civil,medium,draft,TO VERIFY — أرقام الصفحات تحتاج قراءة يدوية من فهرس PDF
