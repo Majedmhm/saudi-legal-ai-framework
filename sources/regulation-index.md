@@ -205,6 +205,33 @@ To add a new regulation to this registry:
 
 ---
 
+## مصادر البيانات المفتوحة الرسمية / Official Open Data Sources
+
+> هذا القسم يُدرج مصادر البيانات المفتوحة الحكومية ذات الصلة بالمنظومة القانونية السعودية.
+> هذه المصادر **مكمِّلة** — تُفيد في الإحصاء والأنماط وإشارات الممارسة القضائية، **ولا تُعوِّض** النصوص التشريعية الرسمية.
+>
+> This section lists official government open data sources relevant to the Saudi legal system.
+> These sources are **supplementary** — useful for statistics, patterns, and court practice signals; they do **not** replace official legislative texts.
+
+---
+
+### منصة البيانات المفتوحة السعودية — ناشر قضائي
+### Saudi Open Data Platform — Judicial Publisher
+
+| الحقل | القيمة |
+|-------|-------|
+| **المنصة** | بوابة البيانات المفتوحة السعودية (data.gov.sa) |
+| **الناشر / Publisher URL** | `https://open.data.gov.sa/ar/publishers/35c63412-c4ae-4303-8fef-56cfd71303cf` |
+| **المشغِّل** | هيئة الحكومة الرقمية |
+| **طبيعة المحتوى** | بيانات إحصائية ووصفية عن المنظومة القضائية |
+| **الاستخدام المقبول** | judicial reasoning patterns · dispute patterns · statistics · metadata · court practice signals |
+| **الاستخدام غير المقبول** | تفسير الأنظمة · الاستشهاد به كمصدر قانوني · استبداله بالنص الرسمي |
+| **حالة التحقق الافتراضية** | أي صف يستند إليه يبدأ بـ `draft` لا يرقى لـ `reviewed` دون تأكيد مختص |
+| **التوثيق الكامل** | [`sources/open-data-judicial-sources.md`](open-data-judicial-sources.md) |
+
+---
+
 **المصادر الرسمية الرئيسية / Primary Official Sources:**
 - هيئة الخبراء بمجلس الوزراء: [boe.gov.sa](https://boe.gov.sa)
 - الجريدة الرسمية (أم القرى): [uqn.gov.sa](https://uqn.gov.sa)
+- منصة البيانات المفتوحة: [open.data.gov.sa](https://open.data.gov.sa)

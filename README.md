@@ -272,6 +272,7 @@ Please read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before contributing. To rep
 | وزارة الموارد البشرية والتنمية الاجتماعية | [hrsd.gov.sa](https://www.hrsd.gov.sa) | Labor and HR regulations |
 | هيئة السوق المالية | [cma.org.sa](https://www.cma.org.sa) | Capital Markets Authority |
 | سدايا | [sdaia.gov.sa](https://sdaia.gov.sa) | Data and AI authority — PDPL regulator |
+| منصة البيانات المفتوحة السعودية | [open.data.gov.sa](https://open.data.gov.sa) | Judicial & government open datasets — statistics, patterns, metadata (supplementary only) |
 
 ---
 
@@ -286,6 +287,7 @@ Please read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before contributing. To rep
 | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Community standards and expected behaviour |
 | [SECURITY.md](SECURITY.md) | How to report security issues and data incidents |
 | [docs/cross-reference-map.md](docs/cross-reference-map.md) | File dependency map — what to update when you change something |
+| [sources/open-data-judicial-sources.md](sources/open-data-judicial-sources.md) | Saudi open data sources — judicial statistics and practice signals |
 
 ---
 
