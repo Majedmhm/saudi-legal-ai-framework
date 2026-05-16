@@ -277,6 +277,7 @@ Please read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before contributing. To rep
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guide — datasets, citations, PRs |
 | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Community standards and expected behaviour |
 | [SECURITY.md](SECURITY.md) | How to report security issues and data incidents |
+| [docs/cross-reference-map.md](docs/cross-reference-map.md) | File dependency map — what to update when you change something |
 
 ---
 
