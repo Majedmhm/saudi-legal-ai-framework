@@ -68,12 +68,20 @@ When an AI assistant defaults to Western legal reasoning in a Saudi context, it 
 ## Project Status / حالة المشروع
 
 ```
-Phase 1 — Foundation        ████████░░   In Progress   v0.1 published
-Phase 2 — Knowledge Base    ██░░░░░░░░   Planned
-Phase 3 — AI Workflows      ░░░░░░░░░░   Planned
+Phase 1 — Foundation        ██████████   Complete
+Phase 2 — Knowledge Base    ██████░░░░   In Progress
+Phase 3 — AI Workflows      ███░░░░░░░   Early Foundation
 Phase 4 — MCP Integration   ░░░░░░░░░░   Planned
 Phase 5 — Product Layer     ░░░░░░░░░░   Planned
 ```
+
+**Phase 1 includes:** repository architecture · governance · validation pipeline · CI/CD · contributor workflows · automated testing · verification lifecycle · scalable dataset structure
+
+**Phase 2 includes:** regulation registry · datasets · enums · legal references · Saudi legal sources · example scenarios
+**Phase 2 remaining:** broader coverage · verified references · judicial reasoning · larger datasets
+
+**Phase 3 includes:** standardized legal skills · unified output formats · workflow templates
+**Phase 3 remaining:** orchestration · evaluations · reasoning chains · agent workflows
 
 See [ROADMAP.md](ROADMAP.md) for the full plan and task breakdown.
 
