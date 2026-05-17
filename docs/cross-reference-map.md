@@ -132,6 +132,46 @@ skills/ و datasets/ الرئيسية
 ✅ أخفِ جميع البيانات الشخصية:         [صاحب العمل] · [العامل] · [المحكمة X] بدلًا من الأسماء الحقيقية
 ✅ أضف verification_status = draft:    دائمًا عند الإنشاء
 ✅ لا تستخرج من حكم غير قابل للقراءة: توقف وأضف ملاحظة في الفهرس
+✅ إذا ظهر مرجع فقهي:                 سجّله في sources/fiqh-judicial-references/citation-index.md
+```
+
+---
+
+## 5.5 Fiqh References ← → Judicial Reasoning / المراجع الفقهية ← → الاستخراج القضائي
+
+طبقة المراجع الفقهية مساعدة — تُقرَأ أثناء الاستخراج ولا تسبقه ولا تلزمه.
+
+The fiqh reference layer is supplementary — it is consulted during extraction and does not block or precede it.
+
+| From | To | طبيعة العلاقة |
+|------|----|---------------|
+| `sources/fiqh-judicial-references/citation-index.md` | `datasets/judicial-reasoning/cases/*.md` | كل سجل في الفهرس مرتبط بـ `case_id` — الاستخراج هو المصدر الأساسي |
+| `citation-index.md` → حقل `topic` | `judicial_reasoning` + `legal_principle` في ملفات الاستخراج | الموضوع الفقهي يُساعد على تفسير المبادئ المستخلصة |
+| `sources/fiqh-judicial-references/usage-guidelines.md` | جميع ملفات `datasets/judicial-reasoning/cases/` | يحكم كيفية توثيق الإحالات الفقهية ومنع الـ hallucination |
+| `sources/fiqh-judicial-references/README.md` | `sources/regulation-index.md` | الملفان مستقلان — المراجع الفقهية ليست أنظمة رسمية |
+
+### عند إضافة مرجع فقهي جديد / When Adding a Fiqh Citation
+
+```
+✅ تحقق أن المرجع ظهر صراحةً في حكم قضائي في cases/
+✅ أضف سجلاً في:     sources/fiqh-judicial-references/citation-index.md
+✅ اربط الـ case_id:  related_case_id = JD-{سنة}-{NNN}
+✅ استخدم:           verification_status: draft لأي رقم صفحة من OCR
+✅ لا تضفه لـ:        sources/regulation-index.md — المراجع الفقهية ليست أنظمة رسمية
+```
+
+### تبعية الفقه القضائي / Fiqh Layer Dependencies
+
+```
+datasets/judicial-reasoning/cases/*.md   ← المصدر الأساسي دائماً
+        │
+        │  (إذا ظهر مرجع فقهي في applied_regulations أو judicial_reasoning)
+        ▼
+sources/fiqh-judicial-references/citation-index.md
+        │
+        │  (بعد تحقق بشري من المطبوع)
+        ▼
+verification_status: draft → community-reviewed
 ```
 
 ---
@@ -282,14 +322,21 @@ datasets/schema.md   ←── يوثّق ──── datasets/**/*.csv
 sources/judicial-decisions/*.pdf  ──▶  judicial-index/judicial-corpus-index.csv
                                                   │
                                                   ▼  (بعد اكتمال الفهرسة)
-                                   datasets/judicial-reasoning/{extractions}
+                                   datasets/judicial-reasoning/cases/{extractions}
+                                                  │        │
+                                                  │        ▼  (إذا ظهر مرجع فقهي)
+                                                  │  sources/fiqh-judicial-references/
+                                                  │  citation-index.md  [draft حتى تحقق]
                                                   │
                                                   ▼  (بعد التحقق)
                                          skills/ و datasets/ الرئيسية
+
+sources/fiqh-judicial-references/  ≠  sources/regulation-index.md
+    (مراجع مساعدة — لا تشريعية)           (أنظمة رسمية — المصدر الأساسي دائماً)
 ```
 
 ---
 
-*آخر تحديث / Last updated: 2026-05-17 — يعكس حالة المشروع في v0.2 (judicial corpus + indexing + extraction layers)*
+*آخر تحديث / Last updated: 2026-05-17 — يعكس حالة المشروع في v0.3 (fiqh reference layer + judicial extractions batch 1)*
 
 *حدّث هذا التاريخ عند كل مراجعة للخريطة. / Update this date on every map revision.*

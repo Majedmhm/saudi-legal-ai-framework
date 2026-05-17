@@ -113,6 +113,10 @@ saudi-legal-ai-framework/
 │   ├── pdpl.md
 │   ├── regulation-index.md                # Authoritative citation registry for all regulations
 │   ├── open-data-judicial-sources.md      # Saudi open data — supplementary statistics only
+│   ├── fiqh-judicial-references/          # Classical fiqh works cited in judicial rulings
+│   │   ├── README.md                      # Layer boundaries and addition rules
+│   │   ├── citation-index.md              # Fiqh citations linked to case IDs
+│   │   └── usage-guidelines.md            # When and how to use — hallucination prevention
 │   └── judicial-decisions/                # Scanned PDF volumes of Saudi court decisions
 │       └── 1435/                          # Hijri year — 14 PDF volumes
 │
@@ -147,9 +151,40 @@ saudi-legal-ai-framework/
 │   ├── legal-verification-lifecycle.md    # Verification states and transition rules
 │   └── official-api-sources.md            # Saudi government Real-Time APIs — future integration
 │
-└── scripts/                               # Validation and build automation
-    ├── validate_dataset.py
-    └── build_dataset.py
+├── scripts/                               # Validation and build automation
+│   ├── validate_dataset.py
+│   ├── build_dataset.py
+│   └── ocr_pdf_pages.py                   # Repeatable OCR script for judicial PDFs
+│
+└── experiments/                           # OCR test runs and exploratory extraction work
+    └── ocr-production-test/               # Page-level OCR output — images and raw text
+```
+
+### Architectural Flow / تدفق المعمارية
+
+```
+Official laws & Royal Decrees          sources/*.md · sources/regulation-index.md
+        │
+        ▼
+Judicial decisions (scanned PDFs)      sources/judicial-decisions/1435/
+        │
+        ▼
+Fiqh citations inside judgments        sources/fiqh-judicial-references/citation-index.md
+        │  (cited by judges — supplementary, not legislative)
+        ▼
+OCR extraction + indexing              scripts/ocr_pdf_pages.py
+        │                              datasets/judicial-index/
+        ▼
+Judicial reasoning extraction          datasets/judicial-reasoning/cases/
+        │
+        ▼
+Verification lifecycle                 draft → community-reviewed → verified
+        │                              docs/legal-verification-lifecycle.md
+        ▼
+Structured datasets                    datasets/saudi-contract-risk-dataset.csv
+        │
+        ▼
+Skills and AI workflows                skills/ · prompts/ · examples/
 ```
 
 **Design principle:** Each layer is independent. Use a single prompt template without reading the skills files, or combine all layers for a richer context.
