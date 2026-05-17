@@ -1,6 +1,6 @@
 # دورة حياة التحقق القانوني / Legal Verification Lifecycle
 
-**الإصدار / Version:** 1.0
+**الإصدار / Version:** 1.1
 **تاريخ الإصدار / Release date:** 2026-05-16
 **ينطبق على / Applies to:** جميع صفوف مجموعة بيانات مخاطر العقود السعودية
 **Applies to:** All rows in the Saudi Contract Risk Dataset
@@ -58,6 +58,31 @@ Every row progresses through sequential stages from draft to full verification o
 **ينطبق على حالات:**
 - الصف أُضيف إلى قائمة انتظار المراجعة الرسمية
 - طُلب من محامٍ مرخَّص مراجعة الصف
+
+---
+
+### community-reviewed — مراجَع مجتمعيًا
+
+**المعنى:** راجع الصف باحث أو ممارس أو مساهم موثوق في المشروع وأقرَّ منطقه. هذه الحالة ليست اعتمادًا قانونيًا نهائيًا من محامٍ مرخَّص — بل هي إقرار مجتمعي يُعزّز جودة المحتوى قبل التحقق الرسمي.
+
+**Meaning:** Row has been reviewed by a researcher, practitioner, or trusted project contributor who confirmed its logic. This status is not a final legal approval from a licensed attorney — it is a community endorsement that strengthens content quality before formal verification.
+
+**من يستطيع استخدامها:** المشرفون بعد اكتمال مراجعة مجتمعية موثَّقة.
+
+**Who can use it:** Maintainers after a documented community review is complete.
+
+**المسار الأساسي:** `draft` → `community-reviewed` → `verified`
+
+**Primary path:** `draft` → `community-reviewed` → `verified`
+
+**يختلف عن `reviewed` في:** `community-reviewed` يُشير صراحةً إلى مراجعة مجتمعية (باحث أو مساهم)؛ `reviewed` يُستخدم للمراجعات المُنجَزة عبر المسار الرسمي (pending-review → reviewed).
+
+**Differs from `reviewed` in:** `community-reviewed` explicitly denotes a community-sourced review (researcher or contributor); `reviewed` is used for reviews completed through the formal channel (pending-review → reviewed).
+
+**ينطبق على حالات:**
+- صف راجعه باحث قانوني مستقل وأقرّ دقته المنطقية
+- صف راجعه ممارس ذو خبرة في المجال وأكد اتساقه مع الممارسة
+- صف قدَّم عليه مساهم موثوق ملاحظات تفصيلية مقبولة
 
 ---
 
@@ -131,10 +156,13 @@ Every row progresses through sequential stages from draft to full verification o
 |----------------|---------------|------------|--------------------|--------------------|-------------------|
 | `draft` | مسودة أولية | المساهمون | ❌ | لا (بعد) | ❌ |
 | `pending-review` | قيد المراجعة | المشرفون | ❌ | قيد التنفيذ | ❌ |
+| `community-reviewed` | مراجَع مجتمعيًا ★ | المشرفون | ⚠️ بتحفظ مع إفصاح | لم يكتمل | ⚠️ مع إفصاح |
 | `reviewed` | مراجَع (غير محامٍ) | المشرفون | ⚠️ بتحفظ | اختياري | ⚠️ مع إفصاح |
 | `verified` | مُتحقَّق قانونيًا | المشرفون فقط | ✅ | نعم (مكتمل) | ✅ |
 | `deprecated` | متقادم | المشرفون فقط | ❌ | غير مطلوب | ❌ |
 | `superseded` | مستبدَل | المشرفون فقط | ❌ | غير مطلوب | ❌ |
+
+★ المسار الأساسي الجديد: `draft` → `community-reviewed` → `verified`
 
 **Verification Matrix (English)**
 
@@ -142,32 +170,47 @@ Every row progresses through sequential stages from draft to full verification o
 |--------|--------------|-------------|---------------|---------------------|---------|
 | `draft` | Initial draft | Contributors | ❌ | Not yet | ❌ |
 | `pending-review` | Awaiting review | Maintainers | ❌ | In progress | ❌ |
+| `community-reviewed` | Community-reviewed ★ | Maintainers | ⚠️ With caution | Not yet complete | ⚠️ With disclosure |
 | `reviewed` | Reviewed (non-lawyer) | Maintainers | ⚠️ With caution | Optional | ⚠️ With disclosure |
 | `verified` | Legally verified | Maintainers only | ✅ | Yes (complete) | ✅ |
 | `deprecated` | Outdated | Maintainers only | ❌ | Not required | ❌ |
 | `superseded` | Replaced | Maintainers only | ❌ | Not required | ❌ |
 
+★ Primary new path: `draft` → `community-reviewed` → `verified`
+
 ---
 
 ## 4. انتقالات الحالة / State Transitions
 
+**المسار الأساسي الجديد / New Primary Path:**
+
 ```
-draft ──────────────────────► pending-review ──► reviewed ──► verified
-  │                                                                │
-  │                                                                ▼
-  │                                                          deprecated
-  │                                                                │
-  └────────────────────────────────────────────────────────► superseded
+draft ──────────────────────► community-reviewed ──────────────► verified
+                                                                      │
+                                                                      ▼
+                                                                deprecated
+                                                                      │
+                                                               superseded
+```
+
+**المسار البديل (الرسمي) / Alternate Formal Path:**
+
+```
+draft ──► pending-review ──► reviewed ──► verified
 ```
 
 **القواعد / Rules:**
 
 - الحالة الافتراضية عند الإضافة: `draft`
-- الانتقال من `draft` إلى `pending-review`: قرار المشرف
-- الانتقال من `pending-review` إلى `reviewed`: بعد مراجعة مختص غير محامٍ
+- الانتقال من `draft` إلى `community-reviewed`: بعد مراجعة باحث أو ممارس أو مساهم موثوق ★
+- الانتقال من `community-reviewed` إلى `verified`: بعد تأكيد محامٍ مرخَّص + تعيين `reviewed_by_lawyer = yes`
+- الانتقال من `draft` إلى `pending-review`: قرار المشرف (المسار الرسمي البديل)
+- الانتقال من `pending-review` إلى `reviewed`: بعد مراجعة مختص غير محامٍ (المسار الرسمي البديل)
 - الانتقال من `reviewed` إلى `verified`: بعد تأكيد محامٍ مرخَّص + تعيين `reviewed_by_lawyer = yes`
 - الانتقال إلى `deprecated`: عند تغيير تشريعي
 - الانتقال إلى `superseded`: عند إضافة صف بديل
+
+★ `community-reviewed` لا تُعيَّن ذاتيًا — يعيّنها المشرف بعد التحقق من اكتمال المراجعة المجتمعية.
 
 ---
 
@@ -184,14 +227,16 @@ draft ──────────────────────► pend
 ### قواعد الاتساق / Consistency rules
 
 1. إذا كانت `verification_status = verified` فيجب أن تكون `reviewed_by_lawyer = yes`
-2. إذا كانت `reviewed_by_lawyer = yes` فيجب أن تكون `verification_status` في `{reviewed, verified}`
+2. إذا كانت `reviewed_by_lawyer = yes` فيجب أن تكون `verification_status` في `{community-reviewed, reviewed, verified}`
 3. إذا كانت `verification_status = superseded` يجب ذكر ID البديل في `notes`
+4. إذا كانت `verification_status = community-reviewed` فيجب أن تكون `reviewed_by_lawyer = no` (المراجعة المجتمعية لا تُعادل مراجعة محامٍ)
 
 ### Consistency rules (English)
 
 1. If `verification_status = verified`, then `reviewed_by_lawyer` must be `yes`
-2. If `reviewed_by_lawyer = yes`, then `verification_status` should be in `{reviewed, verified}`
+2. If `reviewed_by_lawyer = yes`, then `verification_status` should be in `{community-reviewed, reviewed, verified}`
 3. If `verification_status = superseded`, the replacement row ID should appear in `notes`
+4. If `verification_status = community-reviewed`, then `reviewed_by_lawyer` must be `no` (community review does not equal attorney review)
 
 ---
 
@@ -204,6 +249,18 @@ draft ──────────────────────► pend
 ```csv
 ...,reviewed_by_lawyer,notes,verification_status
 ...,no,,draft
+```
+
+### عند تقديم مراجعة مجتمعية (المسار الأساسي الجديد)
+
+أرسل PR يتضمن:
+- `verification_status = community-reviewed`
+- `reviewed_by_lawyer = no` (المراجعة المجتمعية لا تُعادل مراجعة محامٍ)
+- في وصف الـ PR: اذكر هوية المراجع (باحث / ممارس / مساهم موثوق) وملخص ما راجعه
+
+```csv
+...,reviewed_by_lawyer,notes,verification_status
+...,no,,community-reviewed
 ```
 
 ### عند تحديث صف موجود تغيّر الحكم النظامي فيه

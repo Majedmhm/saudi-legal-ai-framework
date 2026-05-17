@@ -161,8 +161,9 @@ Suggested priority for extracting reasoning from this section.
 حالة التحقق من بيانات هذا الصف في الفهرس — نفس قيم الـ dataset الرئيسي.
 Verification status of this index row's data — same values as the main dataset.
 
-**القيم / Values:** `draft` · `pending-review` · `reviewed` · `verified` · `deprecated` · `superseded`
+**القيم / Values:** `draft` · `pending-review` · `community-reviewed` · `reviewed` · `verified` · `deprecated` · `superseded`
 **الافتراضي / Default:** `draft`
+**المسار الأساسي / Primary path:** `draft` → `community-reviewed` → `verified`
 
 ---
 

@@ -48,8 +48,9 @@ VALID_RISK_LEVELS = {"critical", "high", "medium", "low"}
 VALID_VERIFICATION_STATUSES = {
     "draft",
     "pending-review",
-    "verified",
+    "community-reviewed",
     "reviewed",
+    "verified",
     "deprecated",
     "superseded",
 }

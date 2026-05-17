@@ -45,6 +45,25 @@
 
 ---
 
+### `community-reviewed`
+
+**العربية:** مراجَع مجتمعيًا — راجع الصف باحث أو ممارس أو مساهم موثوق في المشروع وأقرَّ منطقه، لكنه ليس اعتمادًا قانونيًا نهائيًا من محامٍ مرخَّص.
+
+**English:** Community-reviewed — row has been reviewed by a researcher, practitioner, or trusted project contributor who confirmed its logic, but this is not a final legal approval from a licensed attorney.
+
+- من يستطيع تعيينها: المشرفون (بعد اكتمال مراجعة مجتمعية)
+- Who can assign: Maintainers (after community review is complete)
+- الاستخدام في production: ⚠️ بتحفظ مع إفصاح صريح بالحالة
+- Production use: ⚠️ With caution and explicit status disclosure
+- يحتاج مراجعة محامٍ: لم يكتمل بعد — موصى به للوصول إلى `verified`
+- Lawyer review required: Not yet complete — recommended to reach `verified`
+- يُسمح الاستشهاد به: ⚠️ مع إفصاح واضح بأن المراجعة مجتمعية لا قانونية نهائية
+- Citable: ⚠️ With explicit disclosure that review is community-sourced, not final legal validation
+
+**المسار الأساسي / Primary path:** `draft` → `community-reviewed` → `verified`
+
+---
+
 ### `reviewed`
 
 **العربية:** مراجَع — راجع الصف شخص مختص (باحث قانوني أو أكاديمي) وأقرَّ منطقه، لكن لم يُعتمَد من محامٍ مرخَّص.
@@ -128,9 +147,11 @@
 |--------|---------|
 | `Draft` (حرف كبير) | `draft` |
 | `pending_review` (شرطة سفلية) | `pending-review` (شرطة علوية) |
+| `community_reviewed` (شرطة سفلية) | `community-reviewed` (شرطة علوية) |
+| `communityReviewed` (camelCase) | `community-reviewed` |
 | `Verified` | `verified` |
 | `in-review` | `pending-review` |
-| `active` | `verified` أو `reviewed` |
+| `active` | `verified` أو `community-reviewed` |
 | `inactive` | `deprecated` أو `superseded` |
 | فارغ | `draft` (استخدم القيمة الافتراضية) |
 

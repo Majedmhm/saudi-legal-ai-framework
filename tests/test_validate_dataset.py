@@ -128,11 +128,26 @@ class TestCheckRow:
         assert any("verification_status" in str(e) for e in errors)
 
     def test_all_valid_verification_statuses_pass(self):
-        valid_statuses = ["draft", "pending-review", "verified", "reviewed", "deprecated", "superseded"]
+        valid_statuses = [
+            "draft", "pending-review", "community-reviewed",
+            "reviewed", "verified", "deprecated", "superseded",
+        ]
         for status in valid_statuses:
             errors = vd.check_row(_make_valid_row(verification_status=status), row_num=2)
             assert not any("verification_status" in str(e) for e in errors), \
                 f"Status '{status}' should be valid but got errors: {errors}"
+
+    def test_community_reviewed_passes(self):
+        errors = vd.check_row(_make_valid_row(verification_status="community-reviewed"), row_num=2)
+        assert not any("verification_status" in str(e) for e in errors)
+
+    def test_community_reviewed_underscore_variant_fails(self):
+        errors = vd.check_row(_make_valid_row(verification_status="community_reviewed"), row_num=2)
+        assert any("verification_status" in str(e) for e in errors)
+
+    def test_community_reviewed_camelcase_fails(self):
+        errors = vd.check_row(_make_valid_row(verification_status="communityReviewed"), row_num=2)
+        assert any("verification_status" in str(e) for e in errors)
 
     def test_uppercase_verification_status_fails(self):
         errors = vd.check_row(_make_valid_row(verification_status="Draft"), row_num=2)

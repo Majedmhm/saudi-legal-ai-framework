@@ -233,8 +233,9 @@ The extractor's confidence level in the accuracy of this extraction.
 حالة دورة حياة التحقق القانوني — نفس قيم الـ dataset الرئيسي.
 Legal verification lifecycle status — same values as the main dataset.
 
-**القيم / Values:** `draft` · `pending-review` · `reviewed` · `verified` · `deprecated` · `superseded`
+**القيم / Values:** `draft` · `pending-review` · `community-reviewed` · `reviewed` · `verified` · `deprecated` · `superseded`
 **الافتراضي / Default:** `draft` — دائمًا عند الإضافة الأولى
+**المسار الأساسي / Primary path:** `draft` → `community-reviewed` → `verified`
 
 **المرجع / Reference:** [`docs/legal-verification-lifecycle.md`](../../docs/legal-verification-lifecycle.md)
 
