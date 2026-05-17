@@ -166,6 +166,7 @@ For a complete description of each layer, the data lifecycle, and the planned fu
 | **Judicial Corpus** | `sources/judicial-decisions/` | Active — Indexing | Scanned PDF volumes of Saudi court decisions (14 files, 1435H) |
 | **Corpus Index** | `datasets/judicial-index/` | Active — In Progress | Section-level map of PDF volumes before extraction |
 | **Judicial Extraction** | `datasets/judicial-reasoning/` | Framework Ready | Structured 19-field extraction schema — awaiting indexed sections |
+| **Fiqh Reference Layer** | `sources/fiqh-judicial-references/` | Active | Classical fiqh works cited in judicial rulings — supplementary, not legislative |
 | **Contract Datasets** | `datasets/` | Active | 16-column CSV schema with verification lifecycle |
 | **AI Skills** | `skills/` | Active | Domain-specific reasoning guides for AI assistants |
 | **Prompt Templates** | `prompts/` | Active | Self-contained, model-neutral prompt templates |
@@ -347,6 +348,8 @@ Please read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before contributing. To rep
 | [datasets/judicial-reasoning/schema.md](datasets/judicial-reasoning/schema.md) | Judicial reasoning extraction schema — 19-field structured format |
 | [datasets/judicial-reasoning/extraction-guidelines.md](datasets/judicial-reasoning/extraction-guidelines.md) | Extraction and redaction guidelines for judicial decisions |
 | [datasets/judicial-index/judicial-corpus-index.csv](datasets/judicial-index/judicial-corpus-index.csv) | Judicial corpus index — section-level map of PDF volumes before extraction |
+| [sources/fiqh-judicial-references/citation-index.md](sources/fiqh-judicial-references/citation-index.md) | Fiqh citation index — classical works cited in judicial rulings, linked to case IDs |
+| [sources/fiqh-judicial-references/usage-guidelines.md](sources/fiqh-judicial-references/usage-guidelines.md) | When and how to use fiqh references — hallucination prevention rules |
 
 ---
 

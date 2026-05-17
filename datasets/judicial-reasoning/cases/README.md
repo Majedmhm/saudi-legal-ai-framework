@@ -96,6 +96,24 @@ verified
 
 ---
 
+## توثيق الإحالات الفقهية / Documenting Fiqh Citations
+
+**قاعدة إلزامية:** أي مرجع فقهي يظهر في حقل `applied_regulations` أو `judicial_reasoning` داخل أي ملف استخراج **يجب تسجيله** في:
+
+```
+sources/fiqh-judicial-references/citation-index.md
+```
+
+**خطوات التسجيل:**
+1. تحقق أولاً من أن المرجع غير مُدرَج بالفعل في `citation-index.md`
+2. إذا غير مُدرَج: أضف سجلاً جديداً بـ `verification_status: draft`
+3. أشر إلى الـ `reference_id` (مثل `FQR-1435-001`) داخل ملف الاستخراج إذا أردت الربط الصريح
+4. راجع [`sources/fiqh-judicial-references/usage-guidelines.md`](../../../sources/fiqh-judicial-references/usage-guidelines.md) للقواعد الكاملة
+
+**لا تستشهد بمرجع فقهي داخل ملف استخراج إذا لم يكن القاضي أحال إليه صراحةً في الحكم.**
+
+---
+
 ## الملفات المرتبطة / Related Files
 
 | الملف | العلاقة |
@@ -106,3 +124,4 @@ verified
 | [`../../docs/legal-verification-lifecycle.md`](../../docs/legal-verification-lifecycle.md) | تفصيل دورة حياة التحقق |
 | [`../../docs/ocr-strategy.md`](../../docs/ocr-strategy.md) | استراتيجية OCR |
 | [`../../scripts/ocr_pdf_pages.py`](../../scripts/ocr_pdf_pages.py) | سكربت توليد OCR |
+| [`../../../sources/fiqh-judicial-references/citation-index.md`](../../../sources/fiqh-judicial-references/citation-index.md) | فهرس المراجع الفقهية المُحال إليها في الأحكام |

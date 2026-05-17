@@ -112,6 +112,12 @@ This project has evolved from a structured repository into a maintained legal kn
 │   sources/ · sources/regulation-index.md                        │
 │   boe.gov.sa · uqn.gov.sa (external)                           │
 │                                                                  │
+├──────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   LAYER 1-S — Supplementary Fiqh Reference  [نشط / Active]     │
+│   sources/fiqh-judicial-references/                             │
+│   مراجع فقهية ظهرت في تسبيب أحكام — مساعدة لا تشريعية         │
+│                                                                  │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -142,7 +148,11 @@ This project has evolved from a structured repository into a maintained legal kn
 │   Extraction        │  ← datasets/judicial-reasoning/
 │   Reasoning capture │     19 حقلاً · judicial_reasoning + legal_principle
 └────────┬────────────┘
-         │
+         │              ┌──────────────────────────────┐
+         │◄─────────────┤  Supplementary Fiqh Refs     │
+         │   (lookup)   │  sources/fiqh-judicial-refs/ │
+         │              │  مراجع فقهية ظهرت في الأحكام │
+         │              └──────────────────────────────┘
          ▼
 ┌─────────────────────┐
 │   Verification      │  ← verification_status: draft → reviewed → verified
@@ -201,6 +211,20 @@ This project has evolved from a structured repository into a maintained legal kn
 | المصدر الأصلي | boe.gov.sa · uqn.gov.sa |
 | الاستخدام | مرجع للـ skills والـ datasets |
 | يُعوَّض بـ | لا — هذه الطبقة الأساسية دائماً |
+
+---
+
+### Supplementary Fiqh References — المراجع الفقهية المساعدة
+**ما هي:** توثيق المراجع الفقهية الكلاسيكية التي استشهد بها القضاة داخل الأحكام الموثَّقة.
+**What:** Documentation of classical fiqh works cited by judges within verified judicial rulings.
+
+| الخاصية | القيمة |
+|---------|--------|
+| الموقع | `sources/fiqh-judicial-references/` |
+| المحتوى | فهرس استشهادات مرتبط بـ `case_id` · إرشادات الاستخدام |
+| طبيعتها | مساعدة — لا تشريعية ولا بديل عن الأنظمة الرسمية |
+| القيد | كل إحالة لصفحة أو طبعة من OCR تبقى `draft` حتى التحقق البشري |
+| الاستخدام | فهم الاستدلال القضائي فقط — لا إصدار أحكام شرعية مستقلة |
 
 ---
 
@@ -461,6 +485,10 @@ saudi-legal-ai-framework/
 │   ├── civil-transactions-law.md
 │   ├── pdpl.md
 │   ├── open-data-judicial-sources.md    # ← مصدر تكميلي
+│   ├── fiqh-judicial-references/        # LAYER 1-S — مراجع فقهية مساعدة
+│   │   ├── README.md                    # حدود الطبقة وقواعدها
+│   │   ├── citation-index.md           # فهرس الاستشهادات مرتبط بـ case_id
+│   │   └── usage-guidelines.md         # متى وكيف نستخدم هذه المراجع
 │   └── judicial-decisions/              # LAYER 2 — المجموعة القضائية
 │       ├── README.md
 │       └── 1435/                        # ← 14 PDF مُحوَّل بالمسح
@@ -527,4 +555,6 @@ saudi-legal-ai-framework/
 | [`sources/regulation-index.md`](../sources/regulation-index.md) | سجل الاستشهادات الرسمي |
 | [`datasets/judicial-index/README.md`](../datasets/judicial-index/README.md) | دليل طبقة الفهرسة |
 | [`datasets/judicial-reasoning/extraction-guidelines.md`](../datasets/judicial-reasoning/extraction-guidelines.md) | دليل طبقة الاستخراج |
+| [`sources/fiqh-judicial-references/citation-index.md`](../sources/fiqh-judicial-references/citation-index.md) | فهرس المراجع الفقهية في الأحكام |
+| [`sources/fiqh-judicial-references/usage-guidelines.md`](../sources/fiqh-judicial-references/usage-guidelines.md) | إرشادات استخدام المراجع الفقهية |
 | [`ROADMAP.md`](../ROADMAP.md) | السياق الزمني للطبقات المستقبلية |
