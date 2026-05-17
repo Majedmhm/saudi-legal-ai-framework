@@ -337,6 +337,20 @@ Please read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before contributing. To rep
 
 **Additional examples** — Realistic worked examples in `examples/` across different sectors (real estate, technology, healthcare, construction).
 
+### Good First Issues / نقطة البداية للمساهمين الجدد
+
+If you're new to this project, these are the best places to start:
+
+| Task | File | Effort |
+|------|------|--------|
+| Add a worked example for a commercial lease contract | `examples/` | Low |
+| Review labor-law.md and flag any outdated provisions | `sources/labor-law.md` | Low |
+| Add missing official source URLs in any sources/ file | `sources/` | Low |
+| Improve English translation quality in any skill file | `skills/` | Low |
+| Propose a new prompt template for a sector not yet covered | `prompts/` | Medium |
+
+All of these are labeled `good first issue` in the Issues tab.
+
 ### Contribution standards
 - Every legal claim must cite an official Saudi source (decree number, article, issuing authority)
 - New content must include the bilingual legal disclaimer in both Arabic and English
