@@ -16,6 +16,8 @@
 
 - [هدف المشروع](#هدف-المشروع--project-goal)
 - [أنواع المساهمات المقبولة](#أنواع-المساهمات-المقبولة--accepted-contribution-types)
+- [Good First Issues](#good-first-issues)
+- [كيفية تقديم Pull Request](#كيفية-تقديم-pull-request--how-to-submit-a-pr)
 - [Good First Contributions](#good-first-contributions)
 - [الفرق بين Source و Extraction](#الفرق-بين-source-و-extraction--source-vs-extraction)
 - [Contribution Workflow](#contribution-workflow)
@@ -55,6 +57,68 @@ This framework aims to build an open-source reference that teaches AI assistants
 | 🟡 **source جديد** | توثيق نظام سعودي لم يُشمَل في `sources/` | متوسطة |
 | 🟢 **تحسين لغوي** | تحسين الصياغة العربية أو الإنجليزية دون تغيير المعنى | منخفضة |
 | 🟢 **تحسين تنسيق** | توحيد التنسيق وتصحيح روابط | منخفضة |
+
+---
+
+## Good First Issues
+
+هذه المهام الخمس مُعلَّمة `good-first-issue` على GitHub — مناسبة لمن يبدأ مساهمته الأولى في المشروع:
+
+These five tasks are labeled `good-first-issue` on GitHub — ideal for a first contribution:
+
+### 1. أضف مثالاً لعقد إيجار تجاري / Add a Commercial Lease Example
+
+أضف ملف مثال في `examples/` يُغطي سيناريو عقد إيجار تجاري (عقد إيجار محل، مكتب، أو مستودع) وفق قواعد الإخفاء الكاملة. استخدم `examples/employment-contract-review.md` كنموذج للهيكل.
+
+Add an example file in `examples/` covering a commercial lease scenario (retail shop, office, or warehouse) following full anonymization rules. Use `examples/employment-contract-review.md` as a structural template.
+
+### 2. صحّح خطأ تنسيقي في sources/ / Fix a Formatting Issue in sources/
+
+ابحث عن أي خطأ إملائي أو تنسيقي في أي ملف داخل `sources/` وأصلحه. أمثلة: رابط مكسور، جدول غير منتظم، رقم مادة مكتوب بصيغتين مختلفتين.
+
+Find any typo or formatting inconsistency in any file under `sources/` and fix it. Examples: broken link, misaligned table, article number written in two different formats.
+
+### 3. ترجم قسمًا إلى العربية أو الإنجليزية / Translate a Section
+
+اختر قسمًا موجودًا مكتوبًا بلغة واحدة فقط وأضف ترجمته. تأكد من الحفاظ على المعنى القانوني الدقيق.
+
+Find an existing section written in only one language and add its translation. Ensure the precise legal meaning is preserved.
+
+### 4. أضف رابط مصدر رسمي مفقود / Add a Missing Official Source URL
+
+ابحث في `sources/regulation-index.md` أو أي ملف `sources/*.md` عن نظام يفتقر لرابط رسمي من `boe.gov.sa` أو `uqn.gov.sa` وأضف الرابط الصحيح.
+
+Search `sources/regulation-index.md` or any `sources/*.md` file for a regulation missing an official link from `boe.gov.sa` or `uqn.gov.sa` and add the correct URL.
+
+### 5. راجع ملف skill وافتح Issue / Review a Skill File and Open an Issue
+
+اختر أي ملف من `skills/` واقرأه بعناية. إذا وجدت معلومة نظامية غير دقيقة أو افتراضًا قانونيًا غير موثَّق، افتح Issue يصف المشكلة والتصحيح المقترح مع مصدره الرسمي.
+
+Choose any file from `skills/` and read it carefully. If you find an inaccurate regulatory claim or an unverified legal assumption, open an Issue describing the problem, the suggested correction, and its official source.
+
+---
+
+## كيفية تقديم Pull Request / How to Submit a PR
+
+```
+1. Fork + Branch    غصّن المشروع وأنشئ فرعًا وصفيًا
+                    Fork and create a descriptive branch
+                    مثال: add-commercial-lease-example / fix-pdpl-link
+
+2. Edit + Validate  أجرِ التعديل وشغّل التحقق إن عدّلت CSV
+                    Make your change and run validation if editing CSV:
+                    python3 scripts/validate_dataset.py --file <file.csv>
+
+3. Open PR          افتح PR مع وصف يُجيب على: ماذا؟ لماذا؟ المصدر القانوني؟
+                    Open a PR answering: what? why? legal source?
+
+4. Review           المراجعة تشمل دقة المحتوى + غياب البيانات الحقيقية + صحة التنسيق
+                    Review covers content accuracy + no real data + format validity
+```
+
+للتفاصيل الكاملة: [كيفية فتح Pull Request](#كيفية-فتح-pull-request--how-to-open-a-pull-request) و[Before Opening a Pull Request](#before-opening-a-pull-request)
+
+For full details: [How to Open a Pull Request](#كيفية-فتح-pull-request--how-to-open-a-pull-request) and [Before Opening a Pull Request](#before-opening-a-pull-request)
 
 ---
 
